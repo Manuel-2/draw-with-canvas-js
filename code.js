@@ -66,14 +66,27 @@ class whiteBoard {
                 break;
         }
     }
+
+    changeBrushSize(event) {
+        const value = event.path[0].value;
+        this.ctx.lineWidth = value;
+    }
+
+    clearArea() {
+        this.ctx.clearRect(0, 0, 550, 550);
+    }
 }
 
 const pageTitle = document.querySelector("main h1");
 const buttons = document.querySelectorAll(".color-input");
+const brushSizeInput = document.querySelector(".brush-size-input");
+const clearButton = document.querySelector(".clear-input");
 const canvas = document.querySelector(".drawing-area");
 const drawArea = new whiteBoard(canvas);
 
 //setUp
+brushSizeInput.addEventListener("input", drawArea.changeBrushSize.bind(drawArea));
+clearButton.addEventListener("click", drawArea.clearArea.bind(drawArea));
 buttons.forEach(button => button.addEventListener("click", selectColor));
 
 canvas.addEventListener("mousedown", (event) => {
