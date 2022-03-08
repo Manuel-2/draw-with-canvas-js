@@ -26,6 +26,7 @@ main h1 {
   font-size: 4.2rem;
   padding: 15px;
   border-radius: 15px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 footer {
@@ -42,6 +43,29 @@ footer {
 footer a {
   color: #111111;
   font-weight: bold;
+}
+
+.settings {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.settings p {
+  font-size: 1.6rem;
+}
+
+.brush-size-input {
+  width: 200px;
+}
+
+.clear-input {
+  width: 120px;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  background-color: white;
 }
 
 .colors {
@@ -69,6 +93,13 @@ footer a {
   color: white;
   border: none;
   font-weight: bold;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  transition: transform 0.1s, filter 0.1s;
+}
+
+.color-input:active {
+  transform: scale(90%);
+  filter: brightness(50%);
 }
 
 .color-input--rainbow {
