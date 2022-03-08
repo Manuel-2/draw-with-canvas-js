@@ -67,9 +67,10 @@ class whiteBoard {
         }
     }
 
-    changeBrushSize(event) {
+    changeBrushSize(event, paragraph) {
         const value = event.path[0].value;
         this.ctx.lineWidth = value;
+        brushSizeParagraph.innerText = `Brush size: ${value}px`;
     }
 
     clearArea() {
@@ -82,10 +83,15 @@ const buttons = document.querySelectorAll(".color-input");
 const brushSizeInput = document.querySelector(".brush-size-input");
 const clearButton = document.querySelector(".clear-input");
 const canvas = document.querySelector(".drawing-area");
+const brushSizeParagraph = document.querySelector(".settings > label > p");
 const drawArea = new whiteBoard(canvas);
 
 //setUp
-brushSizeInput.addEventListener("input", drawArea.changeBrushSize.bind(drawArea));
+brushSizeInput.addEventListener("input", event => {
+    drawArea.changeBrushSize(event, brushSizeParagraph);
+});
+
+
 clearButton.addEventListener("click", drawArea.clearArea.bind(drawArea));
 buttons.forEach(button => button.addEventListener("click", selectColor));
 
