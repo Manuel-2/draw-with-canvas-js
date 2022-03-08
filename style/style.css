@@ -60,7 +60,7 @@ footer a {
 }
 
 .clear-input {
-  width: 120px;
+  width: 60px;
   height: 30px;
   border-radius: 10px;
   border: none;
@@ -70,6 +70,21 @@ footer a {
 }
 
 .clear-input:active {
+  transform: scale(90%);
+  filter: brightness(50%);
+}
+
+.save-input {
+  width: 60px;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  background-color: white;
+  transition: transform 0.1s, filter 0.1s;
+}
+
+.save-input:active {
   transform: scale(90%);
   filter: brightness(50%);
 }

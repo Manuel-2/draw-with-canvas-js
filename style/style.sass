@@ -7,6 +7,19 @@ $blue-color: hsl(200, 100%,65% )
 $footer-height: 60px
 $color-button-diameter: 65px
 
+@mixin settings-buton ($width, $height)
+    width: $width
+    height: $height
+    border-radius: 10px
+    border: none
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px
+    background-color: white
+    transition: transform 0.1s,filter 0.1s
+
+@mixin settings-buton--active()
+    transform: scale(90%)
+    filter: brightness(50%)
+
 *
     box-sizing: border-box
     margin: 0
@@ -62,17 +75,16 @@ footer
     width: 200px
 
 .clear-input
-    width: 120px
-    height: 30px
-    border-radius: 10px
-    border: none
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px
-    background-color: white
-    transition: transform 0.1s,filter 0.1s
+    @include settings-buton(60px,30px)
 
 .clear-input:active
-    transform: scale(90%)
-    filter: brightness(50%)
+    @include settings-buton--active()
+
+.save-input
+    @include settings-buton(60px,30px)
+
+.save-input:active
+    @include settings-buton--active()
 
 .colors
     margin: 50px 0
