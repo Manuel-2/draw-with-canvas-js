@@ -68,6 +68,11 @@ footer
     border: none
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px
     background-color: white
+    transition: transform 0.1s,filter 0.1s
+
+.clear-input:active
+    transform: scale(90%)
+    filter: brightness(50%)
 
 .colors
     margin: 50px 0
@@ -128,3 +133,23 @@ footer
 .color-input--black
     background-color: black
     color: white
+
+@media (max-width : 625px)
+    .drawing-area
+        width: 90%
+
+    .inputs
+        width: 100%
+        display: flex
+        flex-direction: column
+        align-items: center
+
+        .colors
+            width: 90%
+
+            .color-item
+                width: 60px
+                height: 60px
+
+        .settings
+            width: 100%
