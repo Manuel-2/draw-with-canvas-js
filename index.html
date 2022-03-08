@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draw</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+
+<body>
+    <main>
+        <h1 class="color-input--rainbow">draw with colors!</h1>
+        <div>
+            <ul class="colors">
+                <li class="color-item"><input type="button" value="rainbow" class="color-input color-input--rainbow">
+                </li>
+                <li class="color-item"><input type="button" value="red" class="color-input color-input--red"></li>
+                <li class="color-item"><input type="button" value="green" class="color-input color-input--green"></li>
+                <li class="color-item"><input type="button" value="blue" class="color-input color-input--blue"></li>
+                <li class="color-item"><input type="button" value="black" class="color-input color-input--black"></li>
+            </ul>
+            <div class="settings">
+                <label for="brush-size">
+                    <p>Brush size:</p>
+                    <input name="brush-size" type="range" value="30" min="5" max="100">
+                </label>
+                <input name="clear-draw" type="button" value="clear" min="5" max="100">
+            </div>
+        </div>
+        <canvas class="drawing-area" width="550px" height="550px"></canvas>
+    </main>
+    <footer>By: <a href="https://twitter.com/Manuel2Code" target="_blank">Manuel Peñaloza</a></footer>
+    <script src="./code.js"></script>
+</body>
+
+</html>
