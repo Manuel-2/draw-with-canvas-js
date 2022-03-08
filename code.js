@@ -1,12 +1,14 @@
 // variables
 class whiteBoard {
     constructor(canvas) {
+        this.canvas = canvas;
         this.ctx = canvas.getContext('2d');
         this.ctx.lineCap = "round";
         this.ctx.lineJoin = "round";
         this.ctx.lineWidth = 30;
         this.hue = 1;
         this.ctx.strokeStyle = `hsl(${this.hue}, 100%,65% )`;
+        this.fillWithWhite();
         this.drawing = false;
         this.rainbow = {
             active: true,
@@ -14,6 +16,11 @@ class whiteBoard {
         }
         this.lastX = 0;
         this.lastY = 0;
+    }
+
+    fillWithWhite() {
+        this.ctx.fillStyle = "white";
+        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
     }
 
     updateLastPos(x, y) {
@@ -74,16 +81,25 @@ class whiteBoard {
     }
 
     clearArea() {
-        this.ctx.clearRect(0, 0, 550, 550);
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.fillWithWhite();
+    }
+
+    saveImage() {
+        const link = document.querySelector("#download-drawing");
+        const dataUlr = this.canvas.toDataURL();
+        link.href = dataUlr;
     }
 }
 
 const pageTitle = document.querySelector("main h1");
 const buttons = document.querySelectorAll(".color-input");
+const brushSizeParagraph = document.querySelector(".settings > label > p");
 const brushSizeInput = document.querySelector(".brush-size-input");
 const clearButton = document.querySelector(".clear-input");
+const saveImageButton = document.querySelector("#download-drawing");
 const canvas = document.querySelector(".drawing-area");
-const brushSizeParagraph = document.querySelector(".settings > label > p");
+
 const drawArea = new whiteBoard(canvas);
 
 //setUp
@@ -91,6 +107,7 @@ brushSizeInput.addEventListener("input", event => {
     drawArea.changeBrushSize(event, brushSizeParagraph);
 });
 
+saveImageButton.addEventListener("click", drawArea.saveImage.bind(drawArea));
 
 clearButton.addEventListener("click", drawArea.clearArea.bind(drawArea));
 buttons.forEach(button => button.addEventListener("click", selectColor));
